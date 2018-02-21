@@ -9,6 +9,9 @@ var config = require('./config');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+
+// api models
+var activityTypes = require('./routes/api/activityTypes');
 var events = require('./routes/api/events');
 
 
@@ -33,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/api/activityTypes', activityTypes);
 app.use('/api/events', events);
 
 // catch 404 and forward to error handler
