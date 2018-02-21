@@ -1,3 +1,4 @@
 module.exports = {
-    database: 'mongodb://localhost/zenithDB'
+    databaseLocal: 'mongodb://localhost/zenithDB',
+    databaseMLab: 'mongodb://admin:admin@ds243768.mlab.com:43768/comp3913zenithdb'
 }
