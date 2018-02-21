@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var ActivityType = require('./activityType');
+var ActivityTypeSchema = require('./activityType').activityTypeSchema;
 
 var eventSchema = mongoose.Schema({
     EventId: String,
@@ -7,8 +7,8 @@ var eventSchema = mongoose.Schema({
         From: Date,
         To: Date
     },
-    ActivityType: ActivityType,
-    IsActive: boolean,
+    ActivityType: ActivityTypeSchema,
+    IsActive: Boolean,
     CreationDate: Date
 });
 

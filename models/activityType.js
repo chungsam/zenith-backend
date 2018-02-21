@@ -10,3 +10,4 @@ var activityTypeSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('ActivityType', activityTypeSchema);
+module.exports.activityTypeSchema = activityTypeSchema;
