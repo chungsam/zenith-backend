@@ -3,11 +3,16 @@ var ActivityTypeSchema = require('./activityType').activityTypeSchema;
 
 var eventSchema = mongoose.Schema({
     eventDateTimes: {
-        From: Date,
-        To: Date
+        from: Date,
+        to: Date
     },
     activityType: ActivityTypeSchema,
     isActive: Boolean,
-    creationDate: Date
+    creationDate: {
+        type: Date,
+        default: Date.now
+    }
 });
+
+module.exports = mongoose.model("Event", eventSchema);
 

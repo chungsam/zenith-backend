@@ -1,13 +1,3 @@
-var eventSchema = mongoose.Schema({
-    eventDateTimes: {
-        from: Date,
-        To: Date
-    },
-    activityType: ActivityTypeSchema,
-    isActive: Boolean,
-    creationDate: Date
-});
-
 module.exports = {
     "events": [
         {
@@ -15,8 +5,40 @@ module.exports = {
                 "from": new Date(),
                 "to": new Date(),
             },
-            activityType: "",
+            activityType: {},
             IsActive: true,
-        }
+        },
+        {
+            "eventDateTimes": {
+                "from": new Date(),
+                "to": new Date(),
+            },
+            activityType: {},
+            IsActive: true,
+        },
+        {
+            "eventDateTimes": {
+                "from": new Date(),
+                "to": new Date(),
+            },
+            activityType: {},
+            IsActive: true,
+        },
+        {
+            "eventDateTimes": {
+                "from": new Date(),
+                "to": new Date(),
+            },
+            activityType: {},
+            IsActive: true,
+        },
+        {
+            "eventDateTimes": {
+                "from": new Date(),
+                "to": new Date(),
+            },
+            activityType: {},
+            IsActive: true,
+        },
     ]
 }
