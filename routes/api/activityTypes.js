@@ -1,9 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var config = require('../../config');
-
-var mongoose = require('mongoose');
-var db = mongoose.connection;
 
 var ActivityType = require('../../models/activityType');
 
@@ -23,7 +19,10 @@ ActivityType.collection.count({}, (err, res) => {
 // get all activity types
 router.get('/', (req, res) => {
     ActivityType.find({}, (err, data) => {
-        if (err) res.send(err);
+        if (err) {
+            res.status(400);
+            res.send(err);
+        }
         res.json(data);
     })
 });
@@ -31,7 +30,10 @@ router.get('/', (req, res) => {
 // get activity type by id
 router.get('/:id', (req, res) => {
     ActivityType.findById(req.params.id, (err, activityType) => {
-        if (err) res.send(err);
+        if (err) {
+            res.status(400);
+            res.send(err);
+        }
         res.json(activityType);
     })
 });
@@ -51,6 +53,7 @@ router.post('/', (req, res) => {
         // finally, save to db
         newActivityType.save((err, data, numAffected) => {
             if (err) {
+                res.status(400);
                 res.send(err);
             } else {
                 res.json(data);
@@ -71,11 +74,14 @@ router.put('/:id', (req, res) => {
     } else {
         ActivityType.findById(req.params.id, (err, activityType) => {
             if (err) {
+                res.status(400);
                 res.send(err);
             } else {
                 activityType.desc = req.body.desc;
 
-                res.json({"message": "Successfully updated activity type."});
+                res.json({
+                    "message": "Successfully updated activity type."
+                });
 
                 console.log(`Updated activity type: ${activityType.desc}`);
             }
@@ -89,9 +95,9 @@ router.delete('/:id', (req, res) => {
         _id: req.params.id
     }, (err, activityType) => {
         if (err) {
+            res.status(400);
             res.send(err);
         } else {
-
             res.json({
                 "message": "Successfully deleted activity type."
             });
