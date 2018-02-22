@@ -1,9 +1,8 @@
 var mongoose = require('mongoose');
 
 var activityTypeSchema = new mongoose.Schema({
-    ActivityId: String,
-    ActivityDesc: String,
-    CreationDate: {
+    desc: String,
+    creationDate: {
         type: Date,
         default: Date.now
     }
