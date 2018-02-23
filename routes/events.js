@@ -29,9 +29,10 @@ router.get('/', function (req, res, next) {
 router.get('/edit/:id', (req, res) => {
     var responsePayload = {
         title: "Edit Activity Type",
+        moment: moment
     };
 
-    ActivityType.find({
+    Event.find({
         _id: req.params.id
     }, (err, data) => {
         if (err) {
@@ -40,11 +41,23 @@ router.get('/edit/:id', (req, res) => {
                 "message": "Response error, activity type doesn't exist."
             })
         } else {
-            var activityType = data[0];
-            responsePayload.activityType = activityType;
+            var event = data[0];
+            responsePayload.event = event;
+            
+            ActivityType.find({}, (err, data) => {
+                if(err) {
+                    res.status(400);
+                    res.json(err);
+                } else {
+                    responsePayload.activityTypes = data;
+                }
+
+                res.render('events/edit', responsePayload);
+            })
+            
         }
 
-        res.render('activities/edit', responsePayload);
+        
     })
 });
 
@@ -53,7 +66,18 @@ router.get('/add', (req, res) => {
         title: "Add Event",
     };
 
-    res.render('events/add', responsePayload);
+    ActivityType.find({}, (err, data) => {
+        if(err) {
+            res.status(500);
+            res.json(err);
+        } else {
+            responsePayload.activityTypes = data;
+        }
+
+        res.render('events/add', responsePayload);
+    }).sort('desc');
+
+    
 });
 
 module.exports = router;

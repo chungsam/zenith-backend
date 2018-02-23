@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<% include ../head %>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <% include ../header %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="main-title">
+                        <%= title %>
+                    </h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10">
+                    
+                    <form action="/api/activityTypes" method="post">
+                        <div class="form-group row">
+                            <label for="activityTypeDesc" class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                <input id="activityTypeDesc" name="activityTypeDesc" class="form-control" type="text" required>
+                            </div>
+                        </div>
+                         <input type="submit" id="submitButton" class="btn btn-primary float-md-left" value="Add">
+                         <a class="btn btn-secondary float-md-right" href="/admin/activityTypes">Cancel</a>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <% include ../scripts %>
+
+    </body>
+
+</html>

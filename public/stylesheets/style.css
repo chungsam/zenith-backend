@@ -9,3 +9,11 @@ nav.navbar {
 .main-title {
   padding-top: 15px;
 }
+
+a.btn {
+  color: white;
+}
+
+#add-activity-button-row {
+  padding: 15px 0 15px 0
+}
