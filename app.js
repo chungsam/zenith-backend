@@ -8,11 +8,12 @@ var bodyParser = require('body-parser');
 var config = require('./config');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var activityTypesRoutes = require('./routes/activities');
+var eventsRoutes = require('./routes/events');
 
 // api models
-var activityTypes = require('./routes/api/activityTypes');
-var events = require('./routes/api/events');
+var activityTypesApiRoutes = require('./routes/api/activityTypes');
+var eventsApiRoutes = require('./routes/api/events');
 
 
 var app = express();
@@ -35,9 +36,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
-app.use('/api/activityTypes', activityTypes);
-app.use('/api/events', events);
+
+// api routes
+app.use('/api/activityTypes', activityTypesApiRoutes);
+app.use('/api/events', eventsApiRoutes);
+
+// admin routes
+app.use('/admin/activityTypes', activityTypesRoutes);
+app.use('/admin/events', eventsRoutes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
