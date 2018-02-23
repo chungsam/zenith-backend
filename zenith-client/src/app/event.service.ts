@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class EventService {
-  private BASE_URL = "api/events";
+  private BASE_URL = "https://fierce-waters-46645.herokuapp.com/api/events";
 
   constructor(public _http: Http) { }
 
