@@ -1,8 +1,11 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+nav.navbar {
+  background-color: #e3f2fd;
 }
 
-a {
-  color: #00B7FF;
+.sidebar-nav>ul {
+  padding-top: 15px;
+}
+
+.main-title {
+  padding-top: 15px;
 }
