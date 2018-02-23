@@ -3,6 +3,7 @@ var ActivityTypeSchema = require('./activityType').activityTypeSchema;
 
 var eventSchema = mongoose.Schema({
     eventDateTimes: {
+        date: Date,
         from: Date,
         to: Date
     },
