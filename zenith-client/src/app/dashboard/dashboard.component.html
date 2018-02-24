@@ -3,8 +3,36 @@
     <h1>{{title}}</h1>
   </div>
   <div class="col-md-12">
-    <table>
-      
-    </table>
+    <h2>Week {{currentWeekNum}}</h2>
+    <div>
+      <table class="table ">
+          <thead>
+              <th>Date</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Activity Type</th>
+              <th>Active</th>
+          </thead>
+          <tbody  *ngFor="let event of currentWeekEvents">
+                  <tr>
+                      <td>
+                          {{event.eventDateTimes.date | date: 'EEEE, MMM d yyyy'}}
+                      </td>
+                      <td>
+                          {{event.eventDateTimes.from | date: 'hh:mm a'}}
+                      </td>
+                      <td>
+                          {{event.eventDateTimes.to | date: 'hh:mm a'}}
+                      </td>
+                      <td>
+                          {{event.activityType.desc}}
+                      </td>
+                      <td>
+                          {{event.isActive ? 'Yes' : 'No'}}
+                      </td>
+                  </tr>
+          </tbody>
+      </table>
+    </div>
   </div>
 </div>

@@ -34,6 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'zenith-client/dist')));
 
 app.use('/admin', index);
 
@@ -45,6 +46,10 @@ app.use('/api/events', eventsApiRoutes);
 app.use('/admin/activityTypes', activityTypesRoutes);
 app.use('/admin/events', eventsRoutes);
 
+// Catch all other routes and return the index file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'zenith-client/dist/index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

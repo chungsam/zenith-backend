@@ -7,20 +7,13 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class EventService {
-  private BASE_URL = "https://fierce-waters-46645.herokuapp.com/api/events";
+  private BASE_URL = "/api/events";
 
   constructor(public _http: Http) { }
 
-  getEvents(): Promise<Event[]> {
+  getEvents() {
     return this._http.get(this.BASE_URL)
-      .toPromise()
-      .then(data => data.json() as Event[])
-      .catch(this.handleError);
-  }
-
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
+      .map(res => res.json());
   }
 
 }
