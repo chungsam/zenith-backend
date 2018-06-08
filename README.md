@@ -2,7 +2,7 @@
 
 ### By Sam Chung
 
-### To view the deployed website, visit https://fierce-waters-46645.herokuapp.com.
+### To view the deployed website, visit https://fierce-waters-46645.herokuapp.com/admin.
 
 ### Introduction
 
@@ -23,7 +23,7 @@ A Node/Express server serves the app and all required assets. For data storage, 
 
 ## Deployment
 
-The app was deployed via Heroku, using Heroku-cli. It is currently actively running at https://fierce-waters-46645.herokuapp.com.
+The app was deployed via Heroku, using Heroku-cli. It is currently actively running at https://fierce-waters-46645.herokuapp.com/admin.
 
 ## Getting Started
 
